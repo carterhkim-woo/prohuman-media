@@ -176,6 +176,12 @@
     max-width:24ch;margin:0 auto .38em;
   }
   .hero h1 em{display:block;font-style:normal;color:var(--safelight);font-size:.36em;line-height:1.15}
+  /* DEAD CENTRE OF THE VIDEO — 2026-09-13, his call. The button used to sit inside the hero,
+     so the padding and the headline's bottom margin were uneven to make room for it. It
+     lives under the video now, so both sides match and the headline sits in the middle. */
+  .hero{padding-top:38px;padding-bottom:38px}
+  .hero h1{margin-bottom:0}
+  @media (max-width:760px){.hero{padding-top:34px;padding-bottom:34px}}
   .lede{max-width:60ch;color:var(--ink);font-size:clamp(1.05rem,1rem + .4vw,1.28rem)}
   .lede + .lede{margin-top:14px;color:var(--muted)}
   .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:0;position:absolute;left:24px;right:24px;bottom:0}
