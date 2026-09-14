@@ -619,7 +619,7 @@
     document.getElementById('page-pricing').hidden = (name !== 'pricing');
     document.getElementById('page-contact').hidden = (name !== 'contact');
     tabs.forEach(function(t){ t.classList.toggle('on', t.dataset.tab === (jump ? 'reviews' : name)); });
-    if(jump){ document.getElementById('reviews').scrollIntoView({behavior:'smooth'}); }
+    if(jump){ var r = document.getElementById('reviews'); r.scrollIntoView(); setTimeout(function(){ r.scrollIntoView(); }, 500); }
     else window.scrollTo(0,0);
   }
   document.querySelector('nav.tabs a[data-tab="reviews"]').addEventListener('click', function(){ if(location.hash === '#reviews') show('reviews'); });
