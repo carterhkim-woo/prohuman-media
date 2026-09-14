@@ -121,6 +121,14 @@
   @media (max-width:760px){
     #gal-photos{grid-template-columns:1fr;gap:8px;width:calc(100vw - 16px)}
   }
+  /* The rest of the photo rows go just as wide — 09-14. Their column counts don't change. */
+  #gal-photos-2,#gal-photos-3,#gal-photos-4,#gal-photos-5,#gal-photos-6,#gal-photos-7{
+    width:min(1500px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%)}
+  #gal-photos-2{margin-top:10px}
+  @media (max-width:760px){
+    #gal-photos-2{margin-top:8px}
+    #gal-photos-2,#gal-photos-3,#gal-photos-4,#gal-photos-5,#gal-photos-6,#gal-photos-7{width:calc(100vw - 16px)}
+  }
   .row-feature .slot-h{aspect-ratio:1920/822}
   @media (max-width:760px){.row-vert{gap:8px;grid-template-columns:repeat(2,1fr)}}
   .slot{background:var(--panel);aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:20px}
