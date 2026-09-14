@@ -142,9 +142,10 @@
     width:min(1500px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%)}
   #gal-photos-2{margin-top:10px}
   /* The top video goes just as wide as the photos — 09-14. */
+  .reviews + .reviews{margin-top:12px}
   .reviews{display:flex;flex-wrap:nowrap;gap:12px;align-items:flex-start;width:min(1500px,calc(100vw - 48px));margin:0 0 12px 50%;transform:translateX(-50%)}
   .reviews img{flex:var(--r) 1 0;min-width:0;width:100%;height:auto;border-radius:14px;display:block}
-  @media (max-width:760px){.reviews{width:calc(100vw - 16px);gap:4px}.reviews img{border-radius:6px}}
+  @media (max-width:760px){.reviews{width:calc(100vw - 16px);gap:4px}.reviews + .reviews{margin-top:4px}.reviews img{border-radius:6px}}
   .hero.hero{width:min(1500px,calc(100vw - 48px));margin-left:50%;margin-right:0;transform:translateX(-50%)}
   @media (max-width:760px){.hero.hero{width:calc(100vw - 16px)}}
   /* Every video row goes just as wide too — 09-14. Same column counts as before. */
@@ -384,6 +385,8 @@
     <img style="--r:1.452" src="reviews/IMG_3525.jpg" alt="Client text" loading="lazy">
     <img style="--r:1.798" src="reviews/IMG_3527.jpg" alt="Client text" loading="lazy">
     <img style="--r:1.379" src="reviews/IMG_3534.jpg" alt="Client text" loading="lazy">
+  </div>
+  <div class="reviews">
   </div>
   <div class="reviews">
     <img style="--r:1.041" src="reviews/IMG_3526.jpg" alt="Client text" loading="lazy">
