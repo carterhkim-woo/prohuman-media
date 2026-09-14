@@ -187,6 +187,13 @@
   .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:0;position:absolute;left:24px;right:24px;bottom:0}
   .cta .btn{min-width:260px;text-align:center}
   .cta.cta-under{position:static;display:flex;justify-content:center;margin:28px auto 0}
+  /* 09-14, his call: the button bigger, the "Your business deserves..." line smaller. */
+  .cta.cta-under .btn-a{font-size:1.15rem;padding:14px 34px}
+  .hero h1 .pre{font-size:.3em}
+  @media (max-width:760px){
+    .cta.cta-under .btn-a{font-size:1rem;padding:11px 26px}
+    .hero h1 .pre{font-size:.36em}
+  }
   .btn{
     display:inline-block;padding:13px 22px;border-radius:2px;
     font-weight:600;text-decoration:none;letter-spacing:.01em;
