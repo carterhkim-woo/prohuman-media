@@ -46,6 +46,9 @@
   .mark .name{font-family:var(--display);font-size:3.5rem;line-height:1.06;letter-spacing:.02em;padding-right:.5em;flex:0 0 auto}
   /* Scrolls LEFT now, same 280s speed: his call 2026-09-13 */
   @keyframes namescroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+  .viewstrack{animation-name:viewsscroll}
+  .viewstrack .dom{padding-right:2.5em;flex:0 0 auto}
+  @keyframes viewsscroll{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
   @media (prefers-reduced-motion:reduce){.nametrack{animation:none}}
   @media (max-width:760px){.mark .name{font-size:2rem}}
   .mark .dom{font-family:var(--mono);font-size:1.35rem;color:var(--safelight);letter-spacing:.08em}
@@ -322,7 +325,12 @@
           <span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span>
         </div>
       </div>
-      <span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span>
+      <!-- Slides the opposite way to the title, same speed: 09-14 -->
+      <div class="namebar viewsbar" aria-label="4 million+ views and counting since 2017">
+        <div class="nametrack viewstrack">
+          <span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span>
+        </div>
+      </div>
     </div>
     <nav class="tabs">
       <a href="#home" data-tab="home">Home</a>
@@ -553,6 +561,18 @@
   }
   window.addEventListener('hashchange', function(){ show(location.hash.replace('#','')); });
   show(location.hash.replace('#',''));
+</script>
+<script>
+// Same speed as the title: each track's duration scales with its own width.
+(function(){
+  function sync(){
+    var a=document.querySelector('.nametrack:not(.viewstrack)'), b=document.querySelector('.viewstrack');
+    if(!a||!b||!a.offsetWidth) return;
+    b.style.animationDuration=(280*b.offsetWidth/a.offsetWidth)+'s';
+  }
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(sync);
+  window.addEventListener('load',sync); window.addEventListener('resize',sync);
+})();
 </script>
 
 <!-- local preview toggle: only appears when the page is served from this Mac, never on the live site -->
