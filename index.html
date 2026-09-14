@@ -276,6 +276,10 @@
 
   section{padding:64px 0;border-bottom:1px solid var(--edge)}
   section.pricing{padding-top:26px}
+  .pricehead{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .pricehead h2{margin-bottom:0}
+  .pricehead .btn-a{animation:none;transform:none;font-size:1.1rem;padding:12px 30px}
+  @media (max-width:760px){.pricehead .btn-a{font-size:.95rem;padding:10px 22px;width:auto}}
   section#gallery{padding-bottom:34px}
   .eyebrow{
     font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;
@@ -440,7 +444,11 @@
 
   <section class="pricing">
     <p class="eyebrow">Pricing</p>
-    <h2>Content Packages</h2>
+    <!-- Contact button beside the heading: his call 2026-09-14 -->
+    <div class="pricehead">
+      <h2>Content Packages</h2>
+      <a class="btn btn-a" href="#contact">Contact us here</a>
+    </div>
     <p class="who">Pick one, or stack them.</p>
     <div class="sheet">
       <div class="frame">
