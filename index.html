@@ -348,6 +348,7 @@
     </div>
     <nav class="tabs">
       <a href="#home" data-tab="home">Home</a>
+      <a href="#pricing" data-tab="pricing">Pricing</a>
       <a href="#contact" data-tab="contact">Contact Us</a>
     </nav>
   </header>
@@ -518,6 +519,7 @@
 
   </main>
 
+  <main id="page-pricing" hidden></main>
   <main id="page-contact" hidden>
   <section class="first">
     <h2>Contact Us</h2>
@@ -579,9 +581,11 @@
   }
 
   var tabs = document.querySelectorAll('nav.tabs a');
+  document.getElementById('page-pricing').appendChild(document.querySelector('#page-home section.pricing').cloneNode(true));
   function show(name){
-    if(name !== 'contact') name = 'home';
+    if(name !== 'contact' && name !== 'pricing') name = 'home';
     document.getElementById('page-home').hidden = (name !== 'home');
+    document.getElementById('page-pricing').hidden = (name !== 'pricing');
     document.getElementById('page-contact').hidden = (name !== 'contact');
     tabs.forEach(function(t){ t.classList.toggle('on', t.dataset.tab === name); });
     window.scrollTo(0,0);
