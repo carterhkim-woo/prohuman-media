@@ -361,7 +361,6 @@
       <a href="#home" data-tab="home">Home</a>
       <a href="#contact" data-tab="contact">Contact Us</a>
       <a href="#pricing" data-tab="pricing">Pricing</a>
-      <a href="#reviews" data-tab="reviews">Reviews</a>
     </nav>
   </header>
 
@@ -384,7 +383,7 @@
     <video src="reviews/tiktok-viral.mp4" autoplay muted loop playsinline preload="metadata"></video>
   </div>
   <section id="reviews">
-    <h2>Reviews</h2>
+    <h2>Feedback</h2>
   <div class="reviews">
     <img src="reviews/IMG_3535.jpg" alt="Client text" loading="lazy">
     <img src="reviews/IMG_3527.jpg" alt="Client text" loading="lazy">
@@ -622,7 +621,6 @@
     if(jump){ var r = document.getElementById('reviews'); r.scrollIntoView(); setTimeout(function(){ r.scrollIntoView(); }, 500); }
     else window.scrollTo(0,0);
   }
-  document.querySelector('nav.tabs a[data-tab="reviews"]').addEventListener('click', function(){ if(location.hash === '#reviews') show('reviews'); });
   window.addEventListener('hashchange', function(){ show(location.hash.replace('#','')); });
   show(location.hash.replace('#',''));
 </script>
