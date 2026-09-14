@@ -40,7 +40,8 @@
 
   header{padding:34px 0 0}
   .mark{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px}
-  .namebar{width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;white-space:nowrap}
+  /* Edge to edge for real — 09-14. The old margin maths fought the centred column and sat it ~100px left. */
+  .namebar{width:100vw;align-self:flex-start;position:relative;left:50%;transform:translateX(-50%);overflow:hidden;white-space:nowrap}
   .nametrack{display:inline-flex;width:max-content;animation:namescroll 280s linear infinite}
   .mark .name{font-family:var(--display);font-size:3.5rem;line-height:1.06;letter-spacing:.02em;padding-right:.5em;flex:0 0 auto}
   /* Scrolls LEFT now, same 280s speed: his call 2026-09-13 */
