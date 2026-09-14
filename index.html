@@ -82,7 +82,7 @@
   .slot.filled .tile{display:block}
   .slot.filled .cap,.slot.filled .txt{display:none}
   /* Gallery heading matches the PRO HUMAN MEDIA wordmark exactly */
-  #gallery h2{font-family:var(--display);font-size:1.58rem;letter-spacing:.02em;text-transform:uppercase;margin-bottom:18px}
+  #gallery h2,#reviews h2{font-family:var(--display);font-size:1.58rem;letter-spacing:.02em;text-transform:uppercase;margin-bottom:18px}
   #gallery .who{margin-left:auto;margin-right:auto}
   #gallery .subtabs{justify-content:center;margin-bottom:38px}
   .subtab{
@@ -138,9 +138,9 @@
     width:min(1500px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%)}
   #gal-photos-2{margin-top:10px}
   /* The top video goes just as wide as the photos — 09-14. */
-  .reviews{display:flex;gap:12px;overflow-x:auto;align-items:center;width:min(1500px,calc(100vw - 48px));margin:24px 0 0 50%;transform:translateX(-50%);padding-bottom:6px}
-  .reviews img,.reviews video{height:340px;width:auto;flex:none;border-radius:14px;display:block}
-  @media (max-width:760px){.reviews{width:calc(100vw - 16px)}.reviews img,.reviews video{height:240px}}
+  .reviews{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;align-items:center;width:min(1500px,calc(100vw - 48px));margin:0 0 0 50%;transform:translateX(-50%)}
+  .reviews img,.reviews video{height:300px;width:auto;max-width:100%;object-fit:contain;flex:none;border-radius:14px;display:block}
+  @media (max-width:760px){.reviews{width:calc(100vw - 16px)}.reviews img{height:auto;width:100%}.reviews video{height:420px}}
   .hero.hero{width:min(1500px,calc(100vw - 48px));margin-left:50%;margin-right:0;transform:translateX(-50%)}
   @media (max-width:760px){.hero.hero{width:calc(100vw - 16px)}}
   /* Every video row goes just as wide too — 09-14. Same column counts as before. */
@@ -365,7 +365,14 @@
     </div>
     <h1><span class="pre">Your business deserves professional marketing.</span><em>It's time to go pro.</em></h1>
   </div>
-  <!-- Client texts row, under the hero, above Contact us here: his call 2026-09-14 -->
+  <!-- Under the video, above Gallery, centred: his call 2026-09-13 -->
+  <div class="cta cta-under">
+    <a class="btn btn-a" href="#contact">Contact us here</a>
+  </div>
+
+  <!-- Client texts row, under the hero, below Contact us here, above Gallery: his call 2026-09-14 -->
+  <section id="reviews">
+    <h2>Reviews</h2>
   <div class="reviews">
     <video src="reviews/tiktok-viral.mp4" autoplay muted loop playsinline preload="metadata"></video>
     <img src="reviews/IMG_3525.jpg" alt="Client text" loading="lazy">
@@ -374,10 +381,7 @@
     <img src="reviews/IMG_3526.jpg" alt="Client text" loading="lazy">
     <img src="reviews/IMG_3535.jpg" alt="Client text" loading="lazy">
   </div>
-  <!-- Under the video, above Gallery, centred: his call 2026-09-13 -->
-  <div class="cta cta-under">
-    <a class="btn btn-a" href="#contact">Contact us here</a>
-  </div>
+  </section>
 
   <section id="gallery">
     <h2>Gallery</h2>
