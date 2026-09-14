@@ -285,6 +285,8 @@
 
   section{padding:64px 0;border-bottom:1px solid var(--edge)}
   section.pricing{padding-top:26px}
+  #page-pricing section.pricing > :not(.sheet){padding-left:32px;padding-right:32px}
+  @media (max-width:760px){#page-pricing section.pricing > :not(.sheet){padding-left:18px;padding-right:18px}}
   .pricehead{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .pricehead h2{margin-bottom:0}
   .pricehead .btn-a{animation:none;transform:none;font-size:1.1rem;padding:12px 30px}
