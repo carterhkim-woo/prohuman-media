@@ -113,6 +113,14 @@
   #gal-photos-2 .tile{filter:saturate(.78)}
   #gal-photos .slot{aspect-ratio:3/2}
   #gal-photos .tile{object-fit:cover}
+  /* THE SIX TOP PHOTOS, BIG — 09-14, his call. Computer: three rows of two, wider than the
+     page column so they fill the screen. Phone: one at a time, edge to edge. Only this block;
+     every other photo row stays as it was. */
+  #gal-photos{grid-template-columns:1fr 1fr;gap:10px;background:transparent;border:0;
+    width:min(1500px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%)}
+  @media (max-width:760px){
+    #gal-photos{grid-template-columns:1fr;gap:8px;width:calc(100vw - 16px)}
+  }
   .row-feature .slot-h{aspect-ratio:1920/822}
   @media (max-width:760px){.row-vert{gap:8px;grid-template-columns:repeat(2,1fr)}}
   .slot{background:var(--panel);aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:20px}
