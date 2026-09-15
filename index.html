@@ -631,7 +631,9 @@
   function sync(){
     var a=document.querySelector('.nametrack:not(.viewstrack)'), b=document.querySelector('.viewstrack');
     if(!a||!b||!a.offsetWidth) return;
-    b.style.animationDuration=(280*b.offsetWidth/a.offsetWidth)+'s';
+    // Twice as fast on the phone only: his call 2026-09-15
+    var phone=window.matchMedia('(max-width:760px)').matches;
+    b.style.animationDuration=(280*b.offsetWidth/a.offsetWidth/(phone?2:1))+'s';
   }
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(sync);
   window.addEventListener('load',sync); window.addEventListener('resize',sync);
