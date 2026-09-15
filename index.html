@@ -133,24 +133,24 @@
      page column so they fill the screen. Phone: one at a time, edge to edge. Only this block;
      every other photo row stays as it was. */
   #gal-photos{grid-template-columns:1fr 1fr;gap:10px;background:transparent;border:0;
-    width:min(1500px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%)}
+    width:min(1275px,calc(85vw - 40px));margin-left:50%;transform:translateX(-50%)}
   @media (max-width:760px){
     #gal-photos{grid-template-columns:1fr;gap:8px;width:calc(100vw - 16px)}
   }
   /* The rest of the photo rows go just as wide — 09-14. Their column counts don't change. */
   #gal-photos-2,#gal-photos-3,#gal-photos-4,#gal-photos-5,#gal-photos-6,#gal-photos-7{
-    width:min(1500px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%)}
+    width:min(1275px,calc(85vw - 40px));margin-left:50%;transform:translateX(-50%)}
   #gal-photos-2{margin-top:10px}
   /* The top video goes just as wide as the photos — 09-14. */
   .reviews + .reviews{margin-top:12px}
-  .reviews{display:flex;flex-wrap:nowrap;gap:12px;align-items:flex-start;width:min(1500px,calc(100vw - 48px));margin:0 0 12px 50%;transform:translateX(-50%)}
+  .reviews{display:flex;flex-wrap:nowrap;gap:12px;align-items:flex-start;width:min(1275px,calc(85vw - 40px));margin:0 0 12px 50%;transform:translateX(-50%)}
   .reviews img{flex:1 1 0;min-width:0;width:100%;aspect-ratio:1.5;height:auto;object-fit:contain;background:#fff;border-radius:14px;display:block}
   .reviews img.dark{background:#000}
-  @media (max-width:760px){.reviews{width:calc(100vw - 16px);gap:4px}.reviews + .reviews{margin-top:4px}.reviews img{border-radius:6px}}
-  .hero.hero{width:min(1500px,calc(100vw - 48px));margin-left:50%;margin-right:0;transform:translateX(-50%)}
+  @media (max-width:760px){.reviews{width:calc(85vw - 14px);gap:4px}.reviews + .reviews{margin-top:4px}.reviews img{border-radius:6px}}
+  .hero.hero{width:min(1275px,calc(85vw - 40px));margin-left:50%;margin-right:0;transform:translateX(-50%)}
   @media (max-width:760px){.hero.hero{width:calc(100vw - 16px)}}
   /* Every video row goes just as wide too — 09-14. Same column counts as before. */
-  #gal-videos .grid-work.grid-work{width:min(1500px,calc(100vw - 48px));max-width:none;margin-left:50%;margin-right:0;transform:translateX(-50%)}
+  #gal-videos .grid-work.grid-work{width:min(1275px,calc(85vw - 40px));max-width:none;margin-left:50%;margin-right:0;transform:translateX(-50%)}
   @media (max-width:760px){#gal-videos .grid-work.grid-work{width:calc(100vw - 16px)}}
   @media (max-width:760px){
     #gal-photos-2{margin-top:8px}
