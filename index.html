@@ -83,7 +83,7 @@
   .slot.filled .cap,.slot.filled .txt{display:none}
   /* Gallery heading matches the PRO HUMAN MEDIA wordmark exactly */
   #reviews h2{text-align:center}
-  .viral{display:flex;justify-content:center;margin:24px 0 0}
+  .viral{display:flex;justify-content:center;margin:0 0 12px}
   .viral video{height:520px;max-width:100%;border-radius:14px;display:block}
   @media (max-width:760px){.viral video{height:460px}}
   #gallery h2,#reviews h2{font-family:var(--display);font-size:1.58rem;letter-spacing:.02em;text-transform:uppercase;margin-bottom:18px}
@@ -293,7 +293,7 @@
   .pricehead .btn-a{animation:none;transform:none;font-size:1.1rem;padding:12px 30px}
   @media (max-width:760px){.pricehead .btn-a{font-size:.95rem;padding:10px 22px;width:auto}}
   section#gallery{padding-bottom:34px;padding-top:26px}
-  section#reviews{padding-top:40px;padding-bottom:26px}
+  section#reviews{padding-top:40px;padding-bottom:26px;border-bottom:0}
   .eyebrow{
     font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;
     text-transform:uppercase;color:var(--muted);margin-bottom:18px;
@@ -384,6 +384,9 @@
   <!-- Client texts row, under the hero, below Contact us here, above Gallery: his call 2026-09-14 -->
   <section id="reviews">
     <h2>Feedback</h2>
+  <div class="viral">
+    <video src="reviews/tiktok-viral.mp4?v=4" autoplay muted loop playsinline preload="metadata"></video>
+  </div>
   <div class="reviews">
     <img src="reviews/IMG_3535.jpg" alt="Client text" loading="lazy">
     <img src="reviews/IMG_3527.jpg" alt="Client text" loading="lazy">
@@ -394,9 +397,6 @@
     <img class="dark" src="reviews/IMG_3525.jpg" alt="Client text" loading="lazy">
   </div>
   </section>
-  <div class="viral">
-    <video src="reviews/tiktok-viral.mp4?v=4" autoplay muted loop playsinline preload="metadata"></video>
-  </div>
 
   <section id="gallery">
     <h2>Gallery</h2>
