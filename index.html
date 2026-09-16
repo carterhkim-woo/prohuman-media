@@ -462,9 +462,12 @@
   .cart-total{display:flex;justify-content:space-between;align-items:baseline;padding:14px 4px;font-size:1.1rem}
   .cart-total b{font-size:1.6rem;color:var(--safelight)}
   .cart-pay h3{font-size:1.3rem;margin:18px 0 4px}.cart-sub{color:var(--muted);margin:0 0 14px}
-  .pay-opts{display:grid;gap:10px}
-  .pay-opt{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid var(--safelight);border-radius:10px}
-  .pay-opt span{color:var(--muted);font-size:.9rem}
+  .pay-go{display:block;text-align:center;text-decoration:none;margin:22px 0 0;padding:20px;font-size:1.25rem}
+  #page-checkout .first{padding-top:56px}
+  .pay-due{display:flex;justify-content:space-between;align-items:baseline;padding:16px 18px;border-bottom:1px solid var(--safelight)}
+  .pay-due b{font-size:1.5rem;color:var(--safelight)}
+  .pay-row{display:grid;grid-template-columns:1.2fr 1fr 1fr}
+  .pay-row input+input{border-left:1px solid var(--safelight)}
   .cart-empty a{color:var(--safelight)}
   .numrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
   .numrow .add-cart{margin:0;align-self:center;font-size:.78rem;padding:6px 12px;border-radius:6px;white-space:nowrap}
@@ -745,15 +748,28 @@
     <h2>Cart</h2>
     <div id="cart-items"></div>
     <div id="cart-total" class="cart-total"></div>
+    <!-- One button, no pay options: his call 2026-09-16. Card page gets Stripe later -->
     <div id="cart-pay" class="cart-pay" hidden>
-      <h3>Pay</h3>
-      <p class="cart-sub">Choose how you want to pay. Put your name and what you bought in the payment note.</p>
-      <div class="pay-opts">
-        <div class="pay-opt"><b>Apple Pay</b><span>Coming soon</span></div>
-        <div class="pay-opt"><b>Zelle</b><span>Coming soon</span></div>
-        <div class="pay-opt"><b>Venmo</b><span>Coming soon</span></div>
-      </div>
+      <a href="#checkout" class="est-btn pay-go">Proceed to Payment</a>
     </div>
+  </section>
+  </main>
+  <main id="page-checkout" hidden>
+  <section class="first checkout-page">
+    <form class="est" id="pay-form" onsubmit="return payNotice()">
+      <h3 class="est-h">Payment</h3>
+      <div class="pay-due"><span>Due today</span><b id="pay-total"></b></div>
+      <input aria-label="Name on card" type="text" placeholder="Name on card" autocomplete="cc-name" required>
+      <input aria-label="Email" type="email" placeholder="Email" autocomplete="email" required>
+      <input aria-label="Card number" type="text" inputmode="numeric" placeholder="Card number" autocomplete="cc-number" required>
+      <div class="pay-row">
+        <input aria-label="Expiration" type="text" inputmode="numeric" placeholder="MM / YY" autocomplete="cc-exp" required>
+        <input aria-label="Security code" type="text" inputmode="numeric" placeholder="CVC" autocomplete="cc-csc" required>
+        <input aria-label="ZIP code" type="text" inputmode="numeric" placeholder="ZIP" autocomplete="postal-code" required>
+      </div>
+      <button type="submit" class="est-btn" id="pay-btn">Pay</button>
+    </form>
+    <p class="est-note" id="pay-note" hidden>Card payments open soon. Call or text <a href="tel:+13308016162">+1 (330) 801-6162</a> to book now.</p>
   </section>
   </main>
   <main id="page-contact" hidden>
@@ -828,12 +844,15 @@
   document.getElementById('page-pricing').appendChild(document.querySelector('#page-home section.pricing').cloneNode(true));
   function show(name){
     var jump = (name === 'reviews');
-    if(name !== 'contact' && name !== 'pricing' && name !== 'cart') name = 'home';
+    if(name !== 'contact' && name !== 'pricing' && name !== 'cart' && name !== 'checkout') name = 'home';
+    if(name === 'checkout' && typeof getCart === 'function' && !getCart().length) name = 'cart';
     document.getElementById('page-home').hidden = (name !== 'home');
     document.getElementById('page-pricing').hidden = (name !== 'pricing');
     document.getElementById('page-contact').hidden = (name !== 'contact');
     document.getElementById('page-cart').hidden = (name !== 'cart');
+    document.getElementById('page-checkout').hidden = (name !== 'checkout');
     if(name === 'cart') renderCart();
+    if(name === 'checkout' && typeof money === 'function'){ var due=money(getCart().reduce(function(a,i){return a+i.price;},0)); document.getElementById('pay-total').textContent=due; document.getElementById('pay-btn').textContent='Pay '+due; }
     tabs.forEach(function(t){ t.classList.toggle('on', t.dataset.tab === (jump ? 'reviews' : name)); });
     if(jump){ var r = document.getElementById('reviews'); r.scrollIntoView(); setTimeout(function(){ r.scrollIntoView(); }, 500); }
     else window.scrollTo(0,0);
@@ -859,6 +878,8 @@
 
 <script>
 /* cart: saved on this device, pay page lists it: 2026-09-16 */
+// Placeholder until Stripe is attached: nothing typed here is sent or saved
+function payNotice(){ document.getElementById('pay-form').reset(); document.getElementById('pay-note').hidden=false; return false; }
 var CART_KEY='phm-cart';
 function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return c.findIndex(function(j){return j.id===i.id;})===ix;}); }catch(e){ return []; } }
 function setCart(c){ try{ localStorage.setItem(CART_KEY, JSON.stringify(c)); }catch(e){} updateCount(); }
@@ -881,6 +902,7 @@ document.addEventListener('click',function(e){
   if(q){ var c2=getCart(); c2.splice(+q.dataset.ix,1); setCart(c2); renderCart(); }
 });
 updateCount();
+if(/^#(cart|checkout)$/.test(location.hash)) show(location.hash.replace('#',''));
 </script>
 <!-- local preview toggle: only appears when the page is served from this Mac, never on the live site -->
 <style>
