@@ -482,19 +482,14 @@
     .topbar .logo b{line-height:1 !important}
     .topbar .logo b{font-size:.82rem !important}.topbar .logo small{font-size:.5rem !important;letter-spacing:.16em !important}
     .topbar .ph{display:none !important}
-    /* links in rows of two on phone: 2026-09-16 */
-    .topbar .tl{align-items:center !important}
-    .topbar .tl .mid{display:grid !important;grid-template-columns:auto auto;gap:6px 18px !important;justify-content:center;justify-items:start;align-items:center !important;padding-left:0 !important}
-    .topbar .mid > a{font-size:.72rem !important}
-    .topbar .cart-link svg{top:0 !important}
-    /* bottom row: cart left, Contact Us right, sharing the button's bottom line; count sits above the cart */
-    .topbar .tl,.topbar .tl .mid{align-self:stretch}
-    .topbar .tl .mid{grid-template-rows:auto 1fr;align-content:stretch;padding:4px 0 15px !important;box-sizing:border-box;height:60px}
-    .topbar .mid > .cart-link svg{top:0 !important}
-    .topbar .mid > a:nth-child(3){order:4;align-self:end}
-    .topbar .mid > .cart-link{order:3;align-self:end;justify-self:start}
-    .topbar .mid > a:nth-child(1),.topbar .mid > a:nth-child(2){align-self:start}
-    .topbar .cart-link .cart-count{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);margin-bottom:2px;font-size:.62rem}
+    /* phone: logo on top, links on one row under it, same left edge, desktop order: 2026-09-16 */
+    .topbar{height:84px !important;align-items:flex-start !important;padding-top:10px !important}
+    .topbar .tl{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;flex:0 1 auto !important;margin-right:0 !important}
+    .topbar .tl .mid{display:flex !important;flex-direction:row !important;align-items:flex-end !important;gap:18px !important;padding:0 !important;justify-content:flex-start !important}
+    .topbar .mid > a{font-size:.8rem !important;line-height:1 !important}
+    .topbar .mid > .cart-link svg{top:0 !important;width:16px !important;height:16px !important}
+    .topbar .cart-link .cart-count{position:static;transform:none;font-size:.7rem;margin:0}
+    .topbar .tb{font-size:.72rem !important;padding:8px 12px !important}
     .topbar .cart-link svg{width:16px !important;height:16px !important;top:2px !important}
     .topbar .cart-count{font-size:.62rem}
     .topbar{padding:0 10px !important;gap:8px !important}
@@ -503,7 +498,7 @@
   /* header stays pinned while scrolling: 2026-09-16 */
   .topbar{position:fixed;top:0;left:0;right:0;width:100%;margin:0 !important;transform:none !important;z-index:1000}
   header{padding-top:82px !important}
-  @media (max-width:760px){header{padding-top:60px !important}}
+  @media (max-width:760px){header{padding-top:84px !important}}
   .topbar .phs{display:flex;flex-direction:column;line-height:1.1}
   .topbar .phs small{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--safelight)}
   .hero.hero{aspect-ratio:auto;height:calc(100vh - 82px);min-height:560px;max-height:1000px}
