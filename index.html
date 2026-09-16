@@ -229,7 +229,7 @@
   .lede + .lede{margin-top:14px;color:var(--muted)}
   .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:0;position:absolute;left:24px;right:24px;bottom:0}
   .cta .btn{min-width:260px;text-align:center}
-  .sep-under{height:0;border-bottom:1px solid var(--edge);margin-top:28px}
+  .sep-under{height:0;border-bottom:1px solid var(--edge);margin:18px 0 0}
   .cta.cta-under{position:static;display:flex;justify-content:center;margin:28px auto 0}
   /* 09-14, his call: the button bigger, the "Your business deserves..." line smaller. */
   .cta.cta-under .btn-a{font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.01em;text-transform:none;font-size:1.4rem;padding:18px 46px}
@@ -293,7 +293,7 @@
   .pricehead .btn-a{font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.01em;text-transform:none;animation:none;transform:none;font-size:1.1rem;padding:12px 30px}
   @media (max-width:760px){.pricehead .btn-a{font-size:.95rem;padding:10px 22px;width:auto}}
   section#gallery{padding-bottom:34px;padding-top:18px}
-  section#reviews{padding-top:40px;padding-bottom:4px;border-bottom:0}
+  section#reviews{padding-top:40px;padding-bottom:0;border-bottom:0}
   .eyebrow{
     font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;
     text-transform:uppercase;color:var(--muted);margin-bottom:18px;
@@ -379,7 +379,6 @@
   <div class="cta cta-under">
     <a class="btn btn-a" href="#contact">Click here to contact</a>
   </div>
-  <div class="sep-under"></div>
 
   <!-- Client texts row, under the hero, below Contact us here, above Gallery: his call 2026-09-14 -->
   <section id="reviews">
@@ -397,6 +396,8 @@
     <img class="dark" src="reviews/IMG_3525.jpg" alt="Client text" loading="lazy">
   </div>
   </section>
+
+  <div class="sep-under"></div>
 
   <section id="gallery">
     <h2>Gallery</h2>
