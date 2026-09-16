@@ -408,6 +408,14 @@
   .topbar .ph{display:inline-flex;align-items:center;gap:8px;color:var(--ink) !important;font-weight:700;font-size:1.2rem !important}
   .topbar .ph svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.6}
   .topbar .tb{padding:13px 30px;border-radius:6px;font-size:1rem;color:#15170E !important}
+  .est{max-width:560px;margin:34px auto 0;display:flex;flex-direction:column;gap:10px;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif}
+  .est-lab{font-weight:700;color:var(--ink);font-size:.95rem;margin-top:8px}
+  .est-lab span{font-weight:400;color:var(--muted)}
+  .est input,.est textarea{background:var(--panel);border:1px solid var(--edge);border-radius:10px;color:var(--ink);font:inherit;font-size:1rem;padding:14px 16px;width:100%;box-sizing:border-box;resize:vertical}
+  .est input::placeholder,.est textarea::placeholder{color:#8a8f80}
+  .est input:focus,.est textarea:focus{outline:none;border-color:var(--safelight)}
+  .est-btn{margin-top:14px;align-self:center;background:var(--safelight);color:#15170E;border:0;border-radius:8px;font:inherit;font-weight:700;font-size:1.1rem;padding:15px 48px;cursor:pointer}
+  .est-btn:hover{filter:brightness(1.08)}
   header{padding-top:0 !important}
   .topbar .phs{display:flex;flex-direction:column;line-height:1.1}
   .topbar .phs small{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--safelight)}
@@ -642,6 +650,14 @@
         <span class="val"><a href="tel:+13308016162">+1 (330) 801-6162</a></span>
       </div>
     </div>
+    <!-- Estimate request form under the number: his call 2026-09-16 -->
+    <form class="est" id="est-form" onsubmit="return false">
+      <label class="est-lab" for="est-title">Service requested</label>
+      <input id="est-title" name="title" type="text" placeholder="Service requested" required>
+      <label class="est-lab" for="est-desc">Add a description <span>(optional)</span></label>
+      <textarea id="est-desc" name="description" rows="6" placeholder="Add a description (optional)"></textarea>
+      <button type="submit" class="est-btn">Submit</button>
+    </form>
   </section>
   </main>
 
