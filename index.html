@@ -464,6 +464,9 @@
   .pay-opt{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid var(--safelight);border-radius:10px}
   .pay-opt span{color:var(--muted);font-size:.9rem}
   .cart-empty a{color:var(--safelight)}
+  .numrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .numrow .add-cart{margin:0;align-self:center;font-size:.78rem;padding:6px 12px;border-radius:6px;white-space:nowrap}
+  .frame ul{margin-bottom:0}
   header{padding-top:0 !important}
 /* phone header fits everything, number hidden: 2026-09-16 */
   @media (max-width:760px){
@@ -656,7 +659,7 @@
     <p class="who">Pick one, or stack them.</p>
     <div class="sheet">
       <div class="frame">
-        <span class="num">OPTION 01</span>
+        <div class="numrow"><span class="num">OPTION 01</span><button type="button" class="add-cart" data-id="photo-video" data-name="Professional Photo and Video" data-price="949" data-per="per shoot">Add to Cart</button></div>
         <div class="price">$949<span class="per">per shoot</span></div>
         <h3>Professional Photo and Video</h3>
         <ul>
@@ -666,10 +669,9 @@
           <li>ND filter</li>
           <li>One video and one batch of photos, edited and ready to ship in high definition</li>
         </ul>
-        <button type="button" class="add-cart" data-id="photo-video" data-name="Professional Photo and Video" data-price="949" data-per="per shoot">Add to Cart</button>
       </div>
       <div class="frame">
-        <span class="num">OPTION 02</span>
+        <div class="numrow"><span class="num">OPTION 02</span><button type="button" class="add-cart" data-id="content" data-name="Content Production" data-price="297" data-per="/month">Add to Cart</button></div>
         <div class="price">$297<span class="per">/month</span></div>
         <h3>Content Production</h3>
         <p>An entire month of content planned out and edited by our team.</p>
@@ -679,20 +681,18 @@
           <li>Designed for your ideal customer profile's feed on Instagram, Facebook, TikTok, YouTube Shorts, and Pro Human</li>
           <li>Daily performance analytics review</li>
         </ul>
-        <button type="button" class="add-cart" data-id="content" data-name="Content Production" data-price="297" data-per="/month">Add to Cart</button>
       </div>
       <div class="frame">
-        <span class="num">OPTION 03</span>
+        <div class="numrow"><span class="num">OPTION 03</span><button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="297" data-per="/month">Add to Cart</button></div>
         <div class="price">$297<span class="per">/month</span></div>
         <h3>Custom Website Build and Maintenance</h3>
         <ul>
           <li>Local SEO</li>
           <li>Google review filter that filters out ratings of 3 and below</li>
         </ul>
-        <button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="297" data-per="/month">Add to Cart</button>
       </div>
       <div class="frame">
-        <span class="num">OPTION 04</span>
+        <div class="numrow"><span class="num">OPTION 04</span><button type="button" class="add-cart" data-id="app" data-name="App Creation" data-price="4899" data-per="one time + $297/month">Add to Cart</button></div>
         <div class="price">$4,899<span class="per">one time</span></div>
         <div class="andor">and</div>
         <div class="price price-sub">$297<span class="per">/month</span></div>
@@ -702,7 +702,6 @@
           <li>Built for iPhone and Android</li>
           <li>Designed around what your customers want</li>
         </ul>
-        <button type="button" class="add-cart" data-id="app" data-name="App Creation" data-price="4899" data-per="one time + $297/month">Add to Cart</button>
       </div>
     </div>
   </section>
