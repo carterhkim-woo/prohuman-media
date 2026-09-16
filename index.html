@@ -652,10 +652,8 @@
     </div>
     <!-- Estimate request form under the number: his call 2026-09-16 -->
     <form class="est" id="est-form" onsubmit="return false">
-      <label class="est-lab" for="est-title">Service requested</label>
-      <input id="est-title" name="title" type="text" placeholder="Service requested" required>
-      <label class="est-lab" for="est-desc">Add a description <span>(optional)</span></label>
-      <textarea id="est-desc" name="description" rows="6" placeholder="Add a description (optional)"></textarea>
+      <input id="est-title" aria-label="Service requested" name="title" type="text" placeholder="Service requested" required>
+      <textarea id="est-desc" aria-label="Add a description (optional)" name="description" rows="6" placeholder="Add a description (optional)"></textarea>
       <button type="submit" class="est-btn">Submit</button>
     </form>
   </section>
