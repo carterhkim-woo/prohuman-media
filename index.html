@@ -416,6 +416,13 @@
   .est input:focus,.est textarea:focus{outline:none;border-color:var(--safelight)}
   .est-btn{margin-top:14px;align-self:center;background:var(--safelight);color:#15170E;border:0;border-radius:8px;font:inherit;font-weight:700;font-size:1.1rem;padding:15px 48px;cursor:pointer}
   .est-btn:hover{filter:brightness(1.08)}
+  .est{border:1px solid var(--safelight);background:var(--panel);border-radius:14px;padding:26px 24px 28px;gap:16px}
+  .est-h{margin:0;text-align:center;font-weight:700;font-size:1.45rem;letter-spacing:-.01em;color:var(--ink)}
+  .est-fields{display:flex;flex-direction:column;border:1px solid var(--safelight);border-radius:10px;overflow:hidden}
+  .est .est-fields input,.est .est-fields textarea{border:0;border-radius:0;background:var(--ground)}
+  .est .est-fields input{border-bottom:1px solid var(--safelight)}
+  .est .est-fields input:focus,.est .est-fields textarea:focus{background:#171a13}
+  .est-btn{margin-top:0}
   header{padding-top:0 !important}
   .topbar .phs{display:flex;flex-direction:column;line-height:1.1}
   .topbar .phs small{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--safelight)}
@@ -652,8 +659,11 @@
     </div>
     <!-- Estimate request form under the number: his call 2026-09-16 -->
     <form class="est" id="est-form" onsubmit="return false">
-      <input id="est-title" aria-label="Service requested" name="title" type="text" placeholder="Service requested" required>
-      <textarea id="est-desc" aria-label="Add a description (optional)" name="description" rows="6" placeholder="Add a description (optional)"></textarea>
+      <h3 class="est-h">Get Free Estimate</h3>
+      <div class="est-fields">
+        <input id="est-title" aria-label="Title of service requested" name="title" type="text" placeholder="Title of service requested" required>
+        <textarea id="est-desc" aria-label="Add a description (optional)" name="description" rows="6" placeholder="Add a description (optional)"></textarea>
+      </div>
       <button type="submit" class="est-btn">Submit</button>
     </form>
   </section>
