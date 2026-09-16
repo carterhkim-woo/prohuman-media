@@ -345,7 +345,7 @@
   footer{padding:34px 24px 56px;color:var(--muted);font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   @media (max-width:760px){footer{flex-direction:column;align-items:center;text-align:center;gap:6px;padding:28px 18px 44px}}
   /* Top bar under the two moving rows, layout copied from a firewood site he liked, our colours: 2026-09-16 */
-  .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 18px;padding:14px max(24px,calc((100vw - 1500px)/2));background:var(--panel);border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);width:100vw;margin-left:50%;transform:translateX(-50%);box-sizing:border-box}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0;padding:14px max(24px,calc((100vw - 1500px)/2));background:var(--panel);border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);width:100vw;margin-left:50%;transform:translateX(-50%);box-sizing:border-box}
   .topbar .logo{display:flex;align-items:center;gap:10px;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
   .topbar .logo i{width:30px;height:30px;border-radius:8px;background:var(--safelight);display:grid;place-items:center;font-style:normal;color:#15170E;font-size:.9rem;font-weight:700}
   .topbar .links{display:flex;align-items:center;gap:22px;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.95rem}
@@ -381,7 +381,8 @@
   .hx-phone{border:2px solid #fff;color:#fff;font-size:1.5rem;padding:14px 30px}
   .hx-phone svg{width:22px;height:22px;fill:currentColor}
   .hx-btns a:hover{filter:brightness(1.08)}
-  section#reviews{padding-top:48px}
+  .mark-under{margin-top:36px}
+  section#reviews{padding-top:36px}
   @media (max-width:760px){
     .hero.hero{padding:30px 18px}
     .hx-badge{font-size:.72rem;padding:6px 12px;margin-bottom:14px}
@@ -408,19 +409,6 @@
         <a class="tb" href="sms:+13308016162">Txt Us</a>
       </nav>
     </div>
-    <div class="mark">
-      <div class="namebar" aria-label="PRO HUMAN MEDIA">
-        <div class="nametrack">
-          <span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span>
-        </div>
-      </div>
-      <!-- Slides the opposite way to the title, same speed: 09-14 -->
-      <div class="namebar viewsbar" aria-label="4 million+ views and counting since 2017">
-        <div class="nametrack viewstrack">
-          <span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span>
-        </div>
-      </div>
-    </div>
   </header>
 
   <main id="page-home">
@@ -442,6 +430,20 @@
   </div>
 
   <!-- Client texts row, under the hero, below Contact us here, above Gallery: his call 2026-09-14 -->
+  <div class="mark mark-under">
+      <div class="namebar" aria-label="PRO HUMAN MEDIA">
+        <div class="nametrack">
+          <span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span>
+        </div>
+      </div>
+      <!-- Slides the opposite way to the title, same speed: 09-14 -->
+      <div class="namebar viewsbar" aria-label="4 million+ views and counting since 2017">
+        <div class="nametrack viewstrack">
+          <span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span>
+        </div>
+      </div>
+  </div>
+
   <section id="reviews">
     <h2>Feedback</h2>
   <div class="viral">
