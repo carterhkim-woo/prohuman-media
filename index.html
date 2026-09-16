@@ -435,6 +435,16 @@
   .topbar .tl .mid{align-items:baseline}
   @media (min-width:761px){.hx-btns{transform:translateY(4px)}}
   header{padding-top:0 !important}
+/* phone header fits everything, number hidden: 2026-09-16 */
+  @media (max-width:760px){
+    .topbar .tl{gap:12px}
+    .topbar .tl .mid{display:flex !important;gap:10px}
+    .topbar .mid > a{font-size:.74rem}
+    .topbar .logo b{font-size:.9rem}.topbar .logo small{font-size:.5rem;letter-spacing:.16em}
+    .topbar .ph{display:none !important}
+    .topbar{padding:0 10px !important;gap:8px}
+    .topbar .tb{padding:7px 9px;font-size:.7rem;white-space:nowrap;border-radius:6px}
+  }
   /* header stays pinned while scrolling: 2026-09-16 */
   .topbar{position:fixed;top:0;left:0;right:0;width:100%;margin:0 !important;transform:none !important;z-index:1000}
   header{padding-top:82px !important}
