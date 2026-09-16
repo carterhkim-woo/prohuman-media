@@ -472,6 +472,17 @@
   .hero.hero,.hero h1.hx-h1{text-align:center !important}
   .hx-btns{justify-content:center}
   .hx{margin-left:auto;margin-right:auto}
+  /* phone: hero keeps the video's landscape 16:9 shape, overlay shrunk to fit: 2026-09-16 */
+  @media (max-width:760px){
+    .hero.hero{aspect-ratio:16/9 !important;height:auto !important;min-height:0 !important;max-height:none !important;padding:10px 12px !important}
+    .hero-bg video{object-fit:cover}
+    .hx-badge{font-size:.55rem !important;padding:3px 9px !important;margin-bottom:6px !important}
+    .hero h1.hx-h1{font-size:1.02rem !important;margin-bottom:8px !important;line-height:1.1 !important}
+    .hx-btns{flex-wrap:nowrap !important;gap:8px !important;transform:none !important}
+    .hx-primary{font-size:.66rem !important;padding:7px 11px !important;border-radius:6px !important}
+    .hx-phone{font-size:.66rem !important;padding:5px 10px !important;border-width:1.5px !important;border-radius:6px !important;gap:5px !important}
+    .hx-phone svg{width:10px !important;height:10px !important}
+  }
   header{padding-top:0 !important}
 /* phone header fits everything, number hidden: 2026-09-16 */
   @media (max-width:760px){
