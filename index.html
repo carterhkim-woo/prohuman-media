@@ -484,6 +484,8 @@
     .hx-phone svg{width:10px !important;height:10px !important}
   }
   @media (max-width:760px){.mark-under{margin-top:14px !important}}
+  .cart-opt{display:block;font-style:normal;font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--safelight);margin-bottom:4px}
+  .cart-q .cart-rm{height:26px !important;font-size:.78rem !important;padding:0 10px !important}
   header{padding-top:0 !important}
 /* phone header fits everything, number hidden: 2026-09-16 */
   @media (max-width:760px){
@@ -865,7 +867,7 @@ function updateCount(){ var n=Math.min(4,getCart().length); document.querySelect
 function renderCart(){
   var c=getCart(), box=document.getElementById('cart-items'), tot=document.getElementById('cart-total');
   if(!c.length){ box.innerHTML='<p class="cart-empty">Your cart is empty. <a href="#pricing">See pricing</a></p>'; tot.innerHTML=''; document.getElementById('cart-pay').hidden=true; return; }
-  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" class="cart-rm">Remove</button></div></div>'; }).join('');
+  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><em class="cart-opt">OPTION 0'+({'photo-video':1,content:2,website:3,app:4}[i.id]||'')+'</em><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" class="cart-rm">Remove</button></div></div>'; }).join('');
   var t=c.reduce(function(a,i){return a+i.price;},0);
   tot.innerHTML='<span>Due today</span><b>'+money(t)+'</b>';
   document.getElementById('cart-pay').hidden=false;
