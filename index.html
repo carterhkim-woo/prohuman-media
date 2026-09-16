@@ -397,6 +397,27 @@
   .hero.hero{width:100vw;max-width:none;margin-left:50%;transform:translateX(-50%);aspect-ratio:16/9;min-height:0;border-radius:0}
   .hero-bg video{top:0;left:0;transform:none;width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
   @media (max-width:760px){.hero.hero{aspect-ratio:auto;min-height:56.25vw}}
+  /* white header + big hero, sized like the restoration site he sent: 2026-09-16 */
+  .topbar{background:#fff;border:0;padding:0 max(24px,calc((100vw - 1300px)/2));height:82px;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+  .topbar .logo{flex-direction:column;align-items:flex-start;gap:0;line-height:1;color:#1B1E17}
+  .topbar .logo b{font-weight:800;font-size:1.45rem;letter-spacing:-.01em}
+  .topbar .logo small{font-weight:700;font-size:.72rem;letter-spacing:.2em;color:#B8901A;margin-top:3px}
+  .topbar .links{gap:30px}
+  .topbar .links > a{color:#4A4F44;font-size:1rem}
+  .topbar .links > a:hover{color:#1B1E17}
+  .topbar .ph{display:inline-flex;align-items:center;gap:8px;color:#1B1E17 !important;font-weight:600;font-size:1.2rem !important}
+  .topbar .ph svg{width:20px;height:20px;fill:none;stroke:#1B1E17;stroke-width:1.6}
+  .topbar .tb{padding:13px 30px;border-radius:6px;font-size:1rem;color:#15170E !important}
+  .hero.hero{aspect-ratio:auto;height:calc(100vh - 82px);min-height:560px;max-height:1000px}
+  .hero::before{background:rgba(18,20,15,.55)}
+  .hx{max-width:720px;margin:0 auto;width:100%}
+  @media (max-width:760px){
+    .topbar{height:60px;padding:0 14px}
+    .topbar .logo b{font-size:1.05rem}.topbar .logo small{font-size:.58rem}
+    .topbar .mid,.topbar .ph{display:none}
+    .topbar .tb{padding:9px 16px;font-size:.9rem}
+    .hero.hero{height:auto;min-height:calc(100svh - 60px);max-height:none}
+  }
 </style>
 
 
@@ -404,12 +425,14 @@
 <div class="wrap">
   <header>
     <div class="topbar">
-      <a class="logo" href="#home">Pro Human</a>
-      <nav class="links">
-        <a class="home" href="#home" aria-label="Home"><svg viewBox="0 0 24 24"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg></a>
-        <a href="#contact">Contact Us</a>
+      <a class="logo" href="#home"><b>PRO HUMAN</b><small>MEDIA</small></a>
+      <nav class="links mid">
+        <a href="#home">Home</a>
         <a href="#pricing">Pricing</a>
-        <a class="tb" href="tel:+13308016162">Call Us</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+      <nav class="links">
+        <a class="ph" href="tel:+13308016162"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>(330) 801-6162</a>
         <a class="tb" href="sms:+13308016162">Txt Us</a>
       </nav>
     </div>
