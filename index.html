@@ -368,6 +368,30 @@
     .topbar .links > a:not(.tb),.topbar .dd{display:none}
     .topbar .tb{padding:8px 12px;font-size:.85rem}
   }
+  /* hero overlay, 2026-09-16 */
+  .hero.hero{text-align:left;justify-content:center;padding:48px clamp(22px,5vw,72px);border-bottom:0}
+  .hero::before{background:linear-gradient(90deg,rgba(18,20,15,.82),rgba(18,20,15,.55) 45%,rgba(18,20,15,.15))}
+  .hx{max-width:760px}
+  .hx-badge{display:inline-block;background:var(--safelight);color:#15170E;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:.92rem;padding:8px 18px;border-radius:999px;margin-bottom:22px}
+  .hero h1.hx-h1{font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:clamp(2rem,1rem + 3.6vw,4.2rem);line-height:1.08;letter-spacing:-.025em;margin:0 0 30px;max-width:none;text-align:left;color:#fff}
+  .hero h1.hx-h1 em{display:inline;font-size:1em;font-style:normal;color:var(--safelight);line-height:inherit}
+  .hx-btns{display:flex;gap:16px;flex-wrap:wrap}
+  .hx-btns a{font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;text-decoration:none;border-radius:10px;display:inline-flex;align-items:center;gap:10px}
+  .hx-primary{background:var(--safelight);color:#15170E;font-size:1.2rem;padding:18px 34px}
+  .hx-phone{border:2px solid #fff;color:#fff;font-size:1.5rem;padding:14px 30px}
+  .hx-phone svg{width:22px;height:22px;fill:currentColor}
+  .hx-btns a:hover{filter:brightness(1.08)}
+  section#reviews{padding-top:48px}
+  @media (max-width:760px){
+    .hero.hero{padding:30px 18px}
+    .hx-badge{font-size:.72rem;padding:6px 12px;margin-bottom:14px}
+    .hero h1.hx-h1{font-size:1.65rem;margin-bottom:18px}
+    .hx-btns{gap:10px}
+    .hx-primary{font-size:.95rem;padding:12px 18px}
+    .hx-phone{font-size:1rem;padding:10px 16px}
+    .hx-phone svg{width:16px;height:16px}
+    section#reviews{padding-top:36px}
+  }
 </style>
 
 
@@ -406,13 +430,16 @@
         <source src="hero.mp4?v=2" type="video/mp4">
       </video>
     </div>
-    <h1><span class="pre">Your business deserves professional marketing.</span><em>It's time to go pro.</em></h1>
+    <!-- Hero overlay copied from a restoration site he liked, our colours: 2026-09-16 -->
+    <div class="hx">
+      <span class="hx-badge">4 Million+ Views Since 2017</span>
+      <h1 class="hx-h1">Your business deserves<br><em>professional marketing.</em><br>It's time to go pro.</h1>
+      <div class="hx-btns">
+        <a class="hx-primary" href="#contact">Get Free Estimate</a>
+        <a class="hx-phone" href="tel:+13308016162"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>(330) 801-6162</a>
+      </div>
+    </div>
   </div>
-  <!-- Under the video, above Gallery, centred: his call 2026-09-13 -->
-  <div class="cta cta-under">
-    <a class="btn btn-a" href="#contact">Click here to contact</a>
-  </div>
-  <div class="sep-under"></div>
 
   <!-- Client texts row, under the hero, below Contact us here, above Gallery: his call 2026-09-14 -->
   <section id="reviews">
