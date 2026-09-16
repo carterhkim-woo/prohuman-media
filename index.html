@@ -437,13 +437,14 @@
   header{padding-top:0 !important}
 /* phone header fits everything, number hidden: 2026-09-16 */
   @media (max-width:760px){
-    .topbar .tl{gap:12px !important}
-    .topbar .tl .mid{display:flex !important;gap:10px !important}
-    .topbar .mid > a{display:inline !important;font-size:.74rem !important}
-    .topbar .logo b{font-size:.9rem !important}.topbar .logo small{font-size:.5rem !important;letter-spacing:.16em !important}
+    .topbar *{white-space:nowrap}
+    .topbar .tl{gap:10px !important;align-items:center !important}
+    .topbar .tl .mid{display:flex !important;gap:9px !important;align-items:center !important}
+    .topbar .mid > a{display:inline !important;font-size:.68rem !important}
+    .topbar .logo b{font-size:.82rem !important}.topbar .logo small{font-size:.5rem !important;letter-spacing:.16em !important}
     .topbar .ph{display:none !important}
     .topbar{padding:0 10px !important;gap:8px !important}
-    .topbar .tb{padding:7px 9px !important;font-size:.7rem !important;white-space:nowrap;border-radius:6px !important}
+    .topbar .tb{padding:7px 8px !important;font-size:.64rem !important;white-space:nowrap;border-radius:6px !important}
   }
   /* header stays pinned while scrolling: 2026-09-16 */
   .topbar{position:fixed;top:0;left:0;right:0;width:100%;margin:0 !important;transform:none !important;z-index:1000}
