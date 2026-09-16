@@ -487,6 +487,13 @@
     .topbar .tl .mid{display:grid !important;grid-template-columns:auto auto;gap:6px 18px !important;justify-content:center;justify-items:start;align-items:center !important;padding-left:0 !important}
     .topbar .mid > a{font-size:.72rem !important}
     .topbar .cart-link svg{top:0 !important}
+    /* bottom row: cart left, Contact Us right, sharing the button's bottom line; count sits above the cart */
+    .topbar .tl,.topbar .tl .mid{align-self:stretch}
+    .topbar .tl .mid{grid-template-rows:auto 1fr;align-content:stretch;padding:9px 0 15px !important;box-sizing:border-box;height:60px}
+    .topbar .mid > a:nth-child(3){order:4;align-self:end}
+    .topbar .mid > .cart-link{order:3;align-self:end;justify-self:start}
+    .topbar .mid > a:nth-child(1),.topbar .mid > a:nth-child(2){align-self:start}
+    .topbar .cart-link .cart-count{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);margin-bottom:2px;font-size:.62rem}
     .topbar .cart-link svg{width:16px !important;height:16px !important;top:2px !important}
     .topbar .cart-count{font-size:.62rem}
     .topbar{padding:0 10px !important;gap:8px !important}
