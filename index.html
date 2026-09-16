@@ -423,6 +423,14 @@
   .est .est-fields input{border-bottom:1px solid var(--safelight)}
   .est .est-fields input:focus,.est .est-fields textarea:focus{background:#171a13}
   .est-btn{margin-top:0}
+  /* one box, four rows, gold top and bottom: 2026-09-16 */
+  form.est{border:1px solid var(--safelight);border-radius:12px;padding:0;gap:0;overflow:hidden;background:var(--ground)}
+  form.est .est-h{background:var(--safelight);color:#15170E;padding:16px;margin:0;border-bottom:1px solid var(--safelight)}
+  form.est input,form.est textarea{border:0;border-radius:0;background:var(--ground);padding:16px 18px}
+  form.est input{border-bottom:1px solid var(--safelight)}
+  form.est textarea{border-bottom:1px solid var(--safelight)}
+  form.est input:focus,form.est textarea:focus{background:#171a13;border-color:var(--safelight)}
+  form.est .est-btn{margin:0;align-self:stretch;border-radius:0;padding:16px;width:100%}
   header{padding-top:0 !important}
   .topbar .phs{display:flex;flex-direction:column;line-height:1.1}
   .topbar .phs small{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--safelight)}
@@ -660,10 +668,8 @@
     <!-- Estimate request form under the number: his call 2026-09-16 -->
     <form class="est" id="est-form" onsubmit="return false">
       <h3 class="est-h">Get Free Estimate</h3>
-      <div class="est-fields">
-        <input id="est-title" aria-label="Title of service requested" name="title" type="text" placeholder="Title of service requested" required>
-        <textarea id="est-desc" aria-label="Add a description (optional)" name="description" rows="6" placeholder="Add a description (optional)"></textarea>
-      </div>
+      <input id="est-title" aria-label="Title of service requested" name="title" type="text" placeholder="Title of service requested" required>
+      <textarea id="est-desc" aria-label="Add a description (optional)" name="description" rows="6" placeholder="Add a description (optional)"></textarea>
       <button type="submit" class="est-btn">Submit</button>
     </form>
   </section>
