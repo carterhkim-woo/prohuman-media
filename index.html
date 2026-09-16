@@ -863,7 +863,7 @@ var CART_KEY='phm-cart';
 function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return c.findIndex(function(j){return j.id===i.id;})===ix;}); }catch(e){ return []; } }
 function setCart(c){ try{ localStorage.setItem(CART_KEY, JSON.stringify(c)); }catch(e){} updateCount(); }
 function money(n){ return '$'+Number(n).toLocaleString(); }
-function updateCount(){ var n=Math.min(4,getCart().length); document.querySelectorAll('.cart-count').forEach(function(el){ el.textContent=n; el.hidden = n===0; }); }
+function updateCount(){ var ids=getCart().map(function(i){return i.id;}); document.querySelectorAll('.add-cart').forEach(function(x){ var on=ids.indexOf(x.dataset.id)>-1; x.textContent=on?'Added':'Add to Cart'; x.classList.toggle('is-added',on); }); var n=Math.min(4,ids.length); document.querySelectorAll('.cart-count').forEach(function(el){ el.textContent=n; el.hidden = n===0; }); }
 function renderCart(){
   var c=getCart(), box=document.getElementById('cart-items'), tot=document.getElementById('cart-total');
   if(!c.length){ box.innerHTML='<p class="cart-empty">Your cart is empty. <a href="#pricing">See pricing</a></p>'; tot.innerHTML=''; document.getElementById('cart-pay').hidden=true; return; }
@@ -876,7 +876,7 @@ document.addEventListener('click',function(e){
   var b=e.target.closest('.add-cart');
   if(b){ var c=getCart(), f=c.find(function(i){return i.id===b.dataset.id;});
     if(!f) c.push({id:b.dataset.id,name:b.dataset.name,price:+b.dataset.price,per:b.dataset.per,qty:1});
-    setCart(c); b.textContent='Added'; setTimeout(function(){ b.textContent='Add to Cart'; },1200); return; }
+    setCart(c); return; }
   var q=e.target.closest('.cart-q button');
   if(q){ var c2=getCart(); c2.splice(+q.dataset.ix,1); setCart(c2); renderCart(); }
 });
