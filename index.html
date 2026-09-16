@@ -434,6 +434,10 @@
   .topbar .tl{display:flex;align-items:baseline;gap:34px}
   .topbar .tl .mid{align-items:baseline}
   @media (min-width:761px){.hx-btns{transform:translateY(4px)}}
+  /* pricing header: white phone box, text lined up with option 1 left and option 4 right: 2026-09-16 */
+  .ph-price{display:inline-flex;align-items:center;gap:10px;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;text-decoration:none;border-radius:10px}
+  @media (min-width:1100px){#page-pricing section.pricing > :not(.sheet){padding-left:0 !important;padding-right:0 !important}}
+  @media (max-width:760px){.ph-price{font-size:1rem;padding:10px 16px}.ph-price svg{width:16px;height:16px}}
   header{padding-top:0 !important}
 /* phone header fits everything, number hidden: 2026-09-16 */
   @media (max-width:760px){
@@ -620,7 +624,7 @@
     <!-- Contact button beside the heading: his call 2026-09-14 -->
     <div class="pricehead">
       <h2>Pricing</h2>
-      <a class="btn btn-a" href="#contact">Contact us here</a>
+      <a class="hx-phone ph-price" href="tel:+13308016162"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>(330) 801-6162</a>
     </div>
     <p class="who">Pick one, or stack them.</p>
     <div class="sheet">
