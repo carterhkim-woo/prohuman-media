@@ -435,6 +435,10 @@
   .topbar .tl .mid{align-items:baseline}
   @media (min-width:761px){.hx-btns{transform:translateY(4px)}}
   header{padding-top:0 !important}
+  /* header stays pinned while scrolling: 2026-09-16 */
+  .topbar{position:fixed;top:0;left:0;right:0;width:100%;margin:0 !important;transform:none !important;z-index:1000}
+  header{padding-top:82px !important}
+  @media (max-width:760px){header{padding-top:60px !important}}
   .topbar .phs{display:flex;flex-direction:column;line-height:1.1}
   .topbar .phs small{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--safelight)}
   .hero.hero{aspect-ratio:auto;height:calc(100vh - 82px);min-height:560px;max-height:1000px}
