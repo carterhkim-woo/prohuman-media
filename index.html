@@ -447,10 +447,13 @@
   .add-cart{margin-top:auto;align-self:stretch;background:var(--safelight);color:#15170E;border:0;border-radius:8px;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:1rem;padding:12px;cursor:pointer}
   .add-cart:hover{filter:brightness(1.08)}
   .frame ul{margin-bottom:14px}
-  .topbar .cart-link{position:relative;display:inline-flex;align-items:center}
+  .topbar .cart-link{position:relative;display:inline-flex !important;align-items:flex-end;gap:3px;line-height:1 !important}
   .topbar .cart-link svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
   .topbar .cart-link svg circle{fill:currentColor;stroke:none}
-  .cart-count{position:absolute;top:-7px;right:-10px;background:var(--safelight);color:#15170E;font-size:.66rem;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center;padding:0 4px}
+  .cart-count{font-size:.8rem;font-weight:700;color:var(--safelight);line-height:1}
+  .cart-count[hidden]{display:none}
+  .topbar .cart-link svg{display:block;margin-bottom:-2px}
+  .cart-q .cart-rm{width:auto;padding:0 12px}
   .cart-page{max-width:640px;margin:0 auto;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif}
   .cart-page h2{font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.025em;font-size:clamp(2.1rem,1.4rem + 2.3vw,3.15rem);margin-bottom:22px}
   .cart-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--edge);border-radius:10px;background:var(--panel);margin-bottom:10px}
@@ -830,25 +833,25 @@
 <script>
 /* cart: saved on this device, pay page lists it: 2026-09-16 */
 var CART_KEY='phm-cart';
-function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[]; }catch(e){ return []; } }
+function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return c.findIndex(function(j){return j.id===i.id;})===ix;}); }catch(e){ return []; } }
 function setCart(c){ try{ localStorage.setItem(CART_KEY, JSON.stringify(c)); }catch(e){} updateCount(); }
 function money(n){ return '$'+Number(n).toLocaleString(); }
-function updateCount(){ var n=getCart().reduce(function(a,i){return a+i.qty;},0); document.querySelectorAll('.cart-count').forEach(function(el){ el.textContent=n; el.hidden = n===0; }); }
+function updateCount(){ var n=Math.min(4,getCart().length); document.querySelectorAll('.cart-count').forEach(function(el){ el.textContent=n; el.hidden = n===0; }); }
 function renderCart(){
   var c=getCart(), box=document.getElementById('cart-items'), tot=document.getElementById('cart-total');
   if(!c.length){ box.innerHTML='<p class="cart-empty">Your cart is empty. <a href="#pricing">See pricing</a></p>'; tot.innerHTML=''; document.getElementById('cart-pay').hidden=true; return; }
-  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" data-d="-1">-</button><span>'+i.qty+'</span><button data-ix="'+ix+'" data-d="1">+</button></div></div>'; }).join('');
-  var t=c.reduce(function(a,i){return a+i.price*i.qty;},0);
+  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" class="cart-rm">Remove</button></div></div>'; }).join('');
+  var t=c.reduce(function(a,i){return a+i.price;},0);
   tot.innerHTML='<span>Due today</span><b>'+money(t)+'</b>';
   document.getElementById('cart-pay').hidden=false;
 }
 document.addEventListener('click',function(e){
   var b=e.target.closest('.add-cart');
   if(b){ var c=getCart(), f=c.find(function(i){return i.id===b.dataset.id;});
-    if(f) f.qty++; else c.push({id:b.dataset.id,name:b.dataset.name,price:+b.dataset.price,per:b.dataset.per,qty:1});
+    if(!f) c.push({id:b.dataset.id,name:b.dataset.name,price:+b.dataset.price,per:b.dataset.per,qty:1});
     setCart(c); b.textContent='Added'; setTimeout(function(){ b.textContent='Add to Cart'; },1200); return; }
   var q=e.target.closest('.cart-q button');
-  if(q){ var c2=getCart(), it=c2[+q.dataset.ix]; it.qty+=+q.dataset.d; if(it.qty<=0) c2.splice(+q.dataset.ix,1); setCart(c2); renderCart(); }
+  if(q){ var c2=getCart(); c2.splice(+q.dataset.ix,1); setCart(c2); renderCart(); }
 });
 updateCount();
 </script>
