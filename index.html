@@ -152,6 +152,12 @@
   /* Every video row goes just as wide too — 09-14. Same column counts as before. */
   #gal-videos .grid-work.grid-work{width:min(1275px,calc(85vw - 40px));max-width:none;margin-left:50%;margin-right:0;transform:translateX(-50%)}
   @media (max-width:760px){#gal-videos .grid-work.grid-work{width:calc(100vw - 16px)}}
+  /* EVERY PHOTO AND VIDEO ROW AS WIDE AS PRICING — 2026-09-18, his call. Same width the
+     pricing cards use (min(1500px, screen minus 64px)), on anything bigger than a phone. */
+  @media (min-width:761px){
+    #gal-photos,#gal-photos-2,#gal-photos-3,#gal-photos-4,#gal-photos-5,#gal-photos-6,#gal-photos-7,.reviews,
+    #gal-videos .grid-work.grid-work{width:min(1500px,calc(100vw - 64px))}
+  }
   @media (max-width:760px){
     #gal-photos-2{margin-top:8px}
     #gal-photos-2,#gal-photos-3,#gal-photos-4,#gal-photos-5,#gal-photos-6,#gal-photos-7{width:calc(100vw - 16px)}
