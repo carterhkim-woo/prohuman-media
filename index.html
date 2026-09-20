@@ -697,7 +697,17 @@
     <p class="who">Pick one, or stack them.</p>
     <div class="sheet">
       <div class="frame">
-        <div class="numrow"><span class="num">OPTION 01</span><button type="button" class="add-cart" data-id="content" data-name="Content Production and Lead Generation" data-price="297" data-per="/month">Add to Cart</button></div>
+        <div class="numrow"><span class="num">OPTION 01</span><button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="197" data-per="/month">Add to Cart</button></div>
+        <div class="price">$197<span class="per">/month</span></div>
+        <h3>Custom Website Build and Maintenance</h3>
+        <ul>
+          <li>Local SEO</li>
+          <li>Google review filter that filters out ratings of 3 and below</li>
+          <li>Auto call text/email back</li>
+        </ul>
+      </div>
+      <div class="frame">
+        <div class="numrow"><span class="num">OPTION 02</span><button type="button" class="add-cart" data-id="content" data-name="Content Production and Lead Generation" data-price="297" data-per="/month">Add to Cart</button></div>
         <div class="price">$297<span class="per">/month</span></div>
         <h3>Content Production and Lead Generation</h3>
         <p>An entire month of content planned out and edited by our team.</p>
@@ -706,18 +716,6 @@
           <li>Made to stop the scroll and get your business seen</li>
           <li>Designed for your ideal customer profile's feed on Instagram, Facebook, TikTok, YouTube Shorts, and Pro Human</li>
           <li>Daily performance analytics review</li>
-        </ul>
-      </div>
-      <div class="frame">
-        <div class="numrow"><span class="num">OPTION 02</span><button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="297" data-per="one time + $97/month">Add to Cart</button></div>
-        <div class="price">$297<span class="per">one time</span></div>
-        <div class="andor">and</div>
-        <div class="price price-sub">$97<span class="per">/month</span></div>
-        <h3>Custom Website Build and Maintenance</h3>
-        <ul>
-          <li>Local SEO</li>
-          <li>Google review filter that filters out ratings of 3 and below</li>
-          <li>Auto call text/email back</li>
         </ul>
       </div>
       <div class="frame">
@@ -877,17 +875,23 @@
 // Placeholder until Stripe is attached: nothing typed here is sent or saved
 function payNotice(){ document.getElementById('pay-form').reset(); document.getElementById('pay-note').hidden=false; return false; }
 var CART_KEY='phm-cart';
-// 'photo-video' was retired 2026-09-20: drop it from carts saved before then, or a
-// returning visitor keeps a package we no longer sell (and an OPTION with no number)
-var SOLD={content:1,website:1,app:1};
-function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return SOLD[i.id] && c.findIndex(function(j){return j.id===i.id;})===ix;}); }catch(e){ return []; } }
+// What we actually sell, in the order the cards appear. A cart saved on someone's device
+// survives a price change or a package being dropped, so every read is filtered and
+// re-priced against this: 'photo-video' went 2026-09-20 and the website package went from
+// $297 one time + $97/month to a flat $197/month the same day.
+var SOLD={
+  website:{n:1,name:'Custom Website Build and Maintenance',price:197,per:'/month'},
+  content:{n:2,name:'Content Production and Lead Generation',price:297,per:'/month'},
+  app:{n:3,name:'App Creation and Maintenance',price:4899,per:'one time + $297/month'}
+};
+function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return SOLD[i.id] && c.findIndex(function(j){return j.id===i.id;})===ix;}).map(function(i){ var k=SOLD[i.id]; return {id:i.id,name:k.name,price:k.price,per:k.per,qty:1}; }); }catch(e){ return []; } }
 function setCart(c){ try{ localStorage.setItem(CART_KEY, JSON.stringify(c)); }catch(e){} updateCount(); }
 function money(n){ return '$'+Number(n).toLocaleString(); }
 function updateCount(){ var ids=getCart().map(function(i){return i.id;}); document.querySelectorAll('.add-cart').forEach(function(x){ var on=ids.indexOf(x.dataset.id)>-1; x.textContent=on?'Added':'Add to Cart'; x.classList.toggle('is-added',on); }); var n=Math.min(3,ids.length); document.querySelectorAll('.cart-count').forEach(function(el){ el.textContent=n; el.hidden = n===0; }); }
 function renderCart(){
   var c=getCart(), box=document.getElementById('cart-items'), tot=document.getElementById('cart-total');
   if(!c.length){ box.innerHTML='<p class="cart-empty">Your cart is empty. <a href="#pricing">See pricing</a></p>'; tot.innerHTML=''; document.getElementById('cart-pay').hidden=true; return; }
-  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><em class="cart-opt">OPTION 0'+({content:1,website:2,app:3}[i.id]||'')+'</em><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" class="cart-rm">Remove</button></div></div>'; }).join('');
+  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><em class="cart-opt">OPTION 0'+(SOLD[i.id]?SOLD[i.id].n:'')+'</em><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" class="cart-rm">Remove</button></div></div>'; }).join('');
   var t=c.reduce(function(a,i){return a+i.price;},0);
   tot.innerHTML='<span>Due today</span><b>'+money(t)+'</b>';
   document.getElementById('cart-pay').hidden=false;
