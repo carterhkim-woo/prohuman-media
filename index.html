@@ -311,7 +311,7 @@
   /* pricing (tab AND bottom of home, same size since 2026-09-18): break out of the 1080 wrap so the cards fill the laptop screen */
   @media (min-width:1100px){
     section.pricing{width:min(1500px,calc(100vw - 64px));margin-left:50%;transform:translateX(-50%)}
-    .pricing .sheet{grid-template-columns:repeat(4,1fr)}
+    .pricing .sheet{grid-template-columns:repeat(3,1fr)}
   }
   .sheet{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--edge);margin-top:34px;border:1px solid var(--edge)}
   .frame{background:var(--panel);padding:26px 24px 28px;display:flex;flex-direction:column;gap:10px}
@@ -439,7 +439,7 @@
   .topbar .tl{display:flex;align-items:baseline;gap:34px}
   .topbar .tl .mid{align-items:baseline}
   @media (min-width:761px){.hx-btns{transform:translateY(4px)}}
-  /* pricing header: white phone box, text lined up with option 1 left and option 4 right: 2026-09-16 */
+  /* pricing header: white phone box, text lined up with option 1 left and option 3 right: 2026-09-16 */
   .ph-price{display:inline-flex;align-items:center;gap:10px;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;text-decoration:none;border-radius:10px}
   @media (min-width:761px){.pricehead .ph-price{font-size:1rem;padding:11px 26px;border-width:2px}.pricehead .ph-price svg{width:16px;height:16px}}
   @media (min-width:1100px){section.pricing > :not(.sheet){padding-left:0 !important;padding-right:0 !important}}
@@ -697,19 +697,7 @@
     <p class="who">Pick one, or stack them.</p>
     <div class="sheet">
       <div class="frame">
-        <div class="numrow"><span class="num">OPTION 01</span><button type="button" class="add-cart" data-id="photo-video" data-name="Professional Photo and Video" data-price="949" data-per="per shoot">Add to Cart</button></div>
-        <div class="price">$949<span class="per">per shoot</span></div>
-        <h3>Professional Photo and Video</h3>
-        <ul>
-          <li>Sony A7 III</li>
-          <li>Flash attachment</li>
-          <li>24mm f/1.4 G Master lens</li>
-          <li>ND filter</li>
-          <li>One video and one batch of photos, edited and ready to ship in high definition</li>
-        </ul>
-      </div>
-      <div class="frame">
-        <div class="numrow"><span class="num">OPTION 02</span><button type="button" class="add-cart" data-id="content" data-name="Content Production and Lead Generation" data-price="297" data-per="/month">Add to Cart</button></div>
+        <div class="numrow"><span class="num">OPTION 01</span><button type="button" class="add-cart" data-id="content" data-name="Content Production and Lead Generation" data-price="297" data-per="/month">Add to Cart</button></div>
         <div class="price">$297<span class="per">/month</span></div>
         <h3>Content Production and Lead Generation</h3>
         <p>An entire month of content planned out and edited by our team.</p>
@@ -721,7 +709,7 @@
         </ul>
       </div>
       <div class="frame">
-        <div class="numrow"><span class="num">OPTION 03</span><button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="297" data-per="one time + $97/month">Add to Cart</button></div>
+        <div class="numrow"><span class="num">OPTION 02</span><button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="297" data-per="one time + $97/month">Add to Cart</button></div>
         <div class="price">$297<span class="per">one time</span></div>
         <div class="andor">and</div>
         <div class="price price-sub">$97<span class="per">/month</span></div>
@@ -733,7 +721,7 @@
         </ul>
       </div>
       <div class="frame">
-        <div class="numrow"><span class="num">OPTION 04</span><button type="button" class="add-cart" data-id="app" data-name="App Creation and Maintenance" data-price="4899" data-per="one time + $297/month">Add to Cart</button></div>
+        <div class="numrow"><span class="num">OPTION 03</span><button type="button" class="add-cart" data-id="app" data-name="App Creation and Maintenance" data-price="4899" data-per="one time + $297/month">Add to Cart</button></div>
         <div class="price">$4,899<span class="per">one time</span></div>
         <div class="andor">and</div>
         <div class="price price-sub">$297<span class="per">/month</span></div>
@@ -889,14 +877,17 @@
 // Placeholder until Stripe is attached: nothing typed here is sent or saved
 function payNotice(){ document.getElementById('pay-form').reset(); document.getElementById('pay-note').hidden=false; return false; }
 var CART_KEY='phm-cart';
-function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return c.findIndex(function(j){return j.id===i.id;})===ix;}); }catch(e){ return []; } }
+// 'photo-video' was retired 2026-09-20: drop it from carts saved before then, or a
+// returning visitor keeps a package we no longer sell (and an OPTION with no number)
+var SOLD={content:1,website:1,app:1};
+function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return SOLD[i.id] && c.findIndex(function(j){return j.id===i.id;})===ix;}); }catch(e){ return []; } }
 function setCart(c){ try{ localStorage.setItem(CART_KEY, JSON.stringify(c)); }catch(e){} updateCount(); }
 function money(n){ return '$'+Number(n).toLocaleString(); }
-function updateCount(){ var ids=getCart().map(function(i){return i.id;}); document.querySelectorAll('.add-cart').forEach(function(x){ var on=ids.indexOf(x.dataset.id)>-1; x.textContent=on?'Added':'Add to Cart'; x.classList.toggle('is-added',on); }); var n=Math.min(4,ids.length); document.querySelectorAll('.cart-count').forEach(function(el){ el.textContent=n; el.hidden = n===0; }); }
+function updateCount(){ var ids=getCart().map(function(i){return i.id;}); document.querySelectorAll('.add-cart').forEach(function(x){ var on=ids.indexOf(x.dataset.id)>-1; x.textContent=on?'Added':'Add to Cart'; x.classList.toggle('is-added',on); }); var n=Math.min(3,ids.length); document.querySelectorAll('.cart-count').forEach(function(el){ el.textContent=n; el.hidden = n===0; }); }
 function renderCart(){
   var c=getCart(), box=document.getElementById('cart-items'), tot=document.getElementById('cart-total');
   if(!c.length){ box.innerHTML='<p class="cart-empty">Your cart is empty. <a href="#pricing">See pricing</a></p>'; tot.innerHTML=''; document.getElementById('cart-pay').hidden=true; return; }
-  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><em class="cart-opt">OPTION 0'+({'photo-video':1,content:2,website:3,app:4}[i.id]||'')+'</em><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" class="cart-rm">Remove</button></div></div>'; }).join('');
+  box.innerHTML=c.map(function(i,ix){ return '<div class="cart-row"><div><em class="cart-opt">OPTION 0'+({content:1,website:2,app:3}[i.id]||'')+'</em><b>'+i.name+'</b><span>'+money(i.price)+' '+i.per+'</span></div><div class="cart-q"><button data-ix="'+ix+'" class="cart-rm">Remove</button></div></div>'; }).join('');
   var t=c.reduce(function(a,i){return a+i.price;},0);
   tot.innerHTML='<span>Due today</span><b>'+money(t)+'</b>';
   document.getElementById('cart-pay').hidden=false;
