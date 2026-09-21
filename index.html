@@ -534,6 +534,17 @@
     .topbar .tb{padding:9px 16px;font-size:.9rem}
     .hero.hero{height:auto;min-height:calc(100svh - 60px);max-height:none}
   }
+  /* PRICING SITS STRAIGHT ON THE SCROLLING BARS — his call 2026-09-20. The section closed
+     itself off with a hairline at the bottom, which was fine when pricing was the last
+     thing on the page and reads as a divider now that it has moved up under the hero. It
+     comes off on the HOME tab only: on the Pricing tab that line is the end of the page,
+     and the tab clones this same markup. The dead space under the cards is pulled in with
+     it, on the phone too, so the bars start right where the pricing stops. */
+  #page-home section.pricing{border-bottom:0}
+  /* 20 while the bars sat directly under this; 36 now they have moved to the bottom of
+     the page and Feedback follows instead. The hairline stays off either way. */
+  #page-home section.pricing{padding-bottom:36px}
+  #page-home .mark-under{margin-top:0 !important}
 </style>
 
 
@@ -568,41 +579,68 @@
     <div class="hx">
       <span class="hx-badge">4 Million+ Views Since 2017</span>
       <h1 class="hx-h1">Your business deserves<br><em>professional marketing.</em><br>It's time to go pro.</h1>
-      <div class="hx-btns">
-        <a class="hx-primary" href="#contact">Get a Free Estimate</a>
-        <a class="hx-phone" href="tel:+13308016162"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>(330) 801-6162</a>
-      </div>
+      <!-- BOTH HERO BUTTONS ARE GONE — his call 2026-09-20. Get a Free Estimate and the
+           phone button came off the hero; the same two are still in the header on every
+           page, and Pricing now sits directly under this, which is the next thing to do. -->
     </div>
   </div>
 
-  <!-- Client texts row, under the hero, below Contact us here, above Gallery: his call 2026-09-14 -->
-  <div class="mark mark-under">
-      <div class="namebar" aria-label="PRO HUMAN MEDIA">
-        <div class="nametrack">
-          <span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span>
-        </div>
+  <!-- PRICING IS THE SECOND SCREEN — his call 2026-09-20. It sat at the bottom of the
+       home tab, under the gallery. Straight under the hero now: the title and the video,
+       then what it costs. The scrolling bars and Feedback follow it. The Pricing TAB
+       still clones this same block (see page-pricing below), so there is one copy. -->
+  <section class="pricing">
+    <p class="eyebrow">Content Packages and Builds</p>
+    <!-- Contact button beside the heading: his call 2026-09-14 -->
+    <div class="pricehead">
+      <h2>Pricing</h2>
+      <a class="hx-phone ph-price" href="tel:+13308016162"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>(330) 801-6162</a>
+    </div>
+    <p class="who">Pick one, or stack them.</p>
+    <div class="sheet">
+      <div class="frame">
+        <div class="numrow"><span class="num">OPTION 01</span><button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="297" data-per="/month">Add to Cart</button></div>
+        <div class="price">$297<span class="per">/month</span></div>
+        <h3>Custom Website Build and Maintenance</h3>
+        <ul>
+          <li>Local SEO</li>
+          <li>Google review filter that filters out ratings of 3 and below</li>
+          <li>Auto call text/email back</li>
+          <li>Domain and hosting</li>
+        </ul>
       </div>
-      <!-- Slides the opposite way to the title, same speed: 09-14 -->
-      <div class="namebar viewsbar" aria-label="4 million+ views and counting since 2017">
-        <div class="nametrack viewstrack">
-          <span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span>
-        </div>
+      <div class="frame">
+        <div class="numrow"><span class="num">OPTION 02</span><button type="button" class="add-cart" data-id="content" data-name="Content Production and Lead Generation" data-price="949" data-per="/month">Add to Cart</button></div>
+        <div class="price">$949<span class="per">/month</span></div>
+        <h3>Content Production and Lead Generation</h3>
+        <p>An entire month of content planned out and edited by our team.</p>
+        <ul>
+          <li>We edit and produce everything</li>
+          <li>Made to stop the scroll and get your business seen</li>
+          <li>Designed for your ideal customer profile's feed on Instagram, Facebook, TikTok, YouTube Shorts, and Pro Human</li>
+          <li>Daily performance analytics review</li>
+        </ul>
       </div>
-  </div>
+      <div class="frame">
+        <div class="numrow"><span class="num">OPTION 03</span><button type="button" class="add-cart" data-id="app" data-name="App Creation and Maintenance" data-price="4899" data-per="one time + $297/month">Add to Cart</button></div>
+        <div class="price">$4,899<span class="per">one time</span></div>
+        <div class="andor">and</div>
+        <div class="price price-sub">$297<span class="per">/month</span></div>
+        <h3>App Creation and Maintenance</h3>
+        <p>A real app for your business, built and shipped.</p>
+        <ul>
+          <li>Built for iPhone and Android</li>
+          <li>Designed around what your customers want</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
 
   <section id="reviews">
     <h2>Feedback</h2>
   <div class="viral">
     <video src="reviews/tiktok-viral.mp4?v=4" autoplay muted loop playsinline preload="metadata"></video>
-  </div>
-  <div class="reviews">
-    <img src="reviews/IMG_3535.jpg" alt="Client text" loading="lazy">
-    <img src="reviews/IMG_3527.jpg" alt="Client text" loading="lazy">
-    <img src="reviews/IMG_3534.jpg?v=2" alt="Client text" loading="lazy">
-  </div>
-  <div class="reviews">
-    <img src="reviews/IMG_3526.jpg?v=2" alt="Client text" loading="lazy">
-    <img class="dark" src="reviews/IMG_3525.jpg" alt="Client text" loading="lazy">
   </div>
   </section>
 
@@ -687,54 +725,37 @@
     </div>
   </section>
 
-  <section class="pricing">
-    <p class="eyebrow">Content Packages and Builds</p>
-    <!-- Contact button beside the heading: his call 2026-09-14 -->
-    <div class="pricehead">
-      <h2>Pricing</h2>
-      <a class="hx-phone ph-price" href="tel:+13308016162"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>(330) 801-6162</a>
-    </div>
-    <p class="who">Pick one, or stack them.</p>
-    <div class="sheet">
-      <div class="frame">
-        <div class="numrow"><span class="num">OPTION 01</span><button type="button" class="add-cart" data-id="website" data-name="Custom Website Build and Maintenance" data-price="197" data-per="/month">Add to Cart</button></div>
-        <div class="price">$197<span class="per">/month</span></div>
-        <h3>Custom Website Build and Maintenance</h3>
-        <ul>
-          <li>Local SEO</li>
-          <li>Google review filter that filters out ratings of 3 and below</li>
-          <li>Auto call text/email back</li>
-          <li>Domain and hosting</li>
-        </ul>
-      </div>
-      <div class="frame">
-        <div class="numrow"><span class="num">OPTION 02</span><button type="button" class="add-cart" data-id="content" data-name="Content Production and Lead Generation" data-price="297" data-per="/month">Add to Cart</button></div>
-        <div class="price">$297<span class="per">/month</span></div>
-        <h3>Content Production and Lead Generation</h3>
-        <p>An entire month of content planned out and edited by our team.</p>
-        <ul>
-          <li>We edit and produce everything</li>
-          <li>Made to stop the scroll and get your business seen</li>
-          <li>Designed for your ideal customer profile's feed on Instagram, Facebook, TikTok, YouTube Shorts, and Pro Human</li>
-          <li>Daily performance analytics review</li>
-        </ul>
-      </div>
-      <div class="frame">
-        <div class="numrow"><span class="num">OPTION 03</span><button type="button" class="add-cart" data-id="app" data-name="App Creation and Maintenance" data-price="4899" data-per="one time + $297/month">Add to Cart</button></div>
-        <div class="price">$4,899<span class="per">one time</span></div>
-        <div class="andor">and</div>
-        <div class="price price-sub">$297<span class="per">/month</span></div>
-        <h3>App Creation and Maintenance</h3>
-        <p>A real app for your business, built and shipped.</p>
-        <ul>
-          <li>Built for iPhone and Android</li>
-          <li>Designed around what your customers want</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
 
+  <!-- THE TEXT-MESSAGE REVIEWS, LAST THING ON THE PAGE — his call 2026-09-20. They were
+       inside Feedback, above the gallery. Feedback keeps its heading and the TikTok
+       clip; only the client texts moved down here, below the gallery. -->
+  <div class="reviews">
+    <img src="reviews/IMG_3535.jpg" alt="Client text" loading="lazy">
+    <img src="reviews/IMG_3527.jpg" alt="Client text" loading="lazy">
+    <img src="reviews/IMG_3534.jpg?v=2" alt="Client text" loading="lazy">
+  </div>
+  <div class="reviews">
+    <img src="reviews/IMG_3526.jpg?v=2" alt="Client text" loading="lazy">
+    <img class="dark" src="reviews/IMG_3525.jpg" alt="Client text" loading="lazy">
+  </div>
+
+  <!-- THE SCROLLING BARS, LAST THING ON THE PAGE — his call 2026-09-20. They sat under
+       the hero since 09-14 and under pricing for about ten minutes today; they close the
+       page out now, under the client texts. -->
+  <div class="mark mark-under">
+      <div class="namebar" aria-label="PRO HUMAN MEDIA">
+        <div class="nametrack">
+          <span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span><span class="name">PRO HUMAN MEDIA</span>
+        </div>
+      </div>
+      <!-- Slides the opposite way to the title, same speed: 09-14 -->
+      <div class="namebar viewsbar" aria-label="4 million+ views and counting since 2017">
+        <div class="nametrack viewstrack">
+          <span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span><span class="dom">4 MILLION+ VIEWS AND COUNTING SINCE 2017</span>
+        </div>
+      </div>
+  </div>
   </main>
 
   <main id="page-pricing" hidden></main>
@@ -880,9 +901,12 @@ var CART_KEY='phm-cart';
 // survives a price change or a package being dropped, so every read is filtered and
 // re-priced against this: 'photo-video' went 2026-09-20 and the website package went from
 // $297 one time + $97/month to a flat $197/month the same day.
+// 2026-09-20, his call: Custom Website $197 -> $297/month, Content Production $297 ->
+// $949/month. A cart saved at an old price is re-priced from this map on every read, so
+// nobody checks out at yesterday's number.
 var SOLD={
-  website:{n:1,name:'Custom Website Build and Maintenance',price:197,per:'/month'},
-  content:{n:2,name:'Content Production and Lead Generation',price:297,per:'/month'},
+  website:{n:1,name:'Custom Website Build and Maintenance',price:297,per:'/month'},
+  content:{n:2,name:'Content Production and Lead Generation',price:949,per:'/month'},
   app:{n:3,name:'App Creation and Maintenance',price:4899,per:'one time + $297/month'}
 };
 function getCart(){ try{ var c=JSON.parse(localStorage.getItem(CART_KEY))||[]; return c.filter(function(i,ix){return SOLD[i.id] && c.findIndex(function(j){return j.id===i.id;})===ix;}).map(function(i){ var k=SOLD[i.id]; return {id:i.id,name:k.name,price:k.price,per:k.per,qty:1}; }); }catch(e){ return []; } }
